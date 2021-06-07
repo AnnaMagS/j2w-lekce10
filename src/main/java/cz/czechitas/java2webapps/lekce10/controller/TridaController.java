@@ -1,5 +1,6 @@
 package cz.czechitas.java2webapps.lekce10.controller;
 
+import cz.czechitas.java2webapps.lekce10.entity.Student;
 import cz.czechitas.java2webapps.lekce10.entity.Trida;
 import cz.czechitas.java2webapps.lekce10.service.MyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class TridaController {
         return new ModelAndView("tridy").addObject("tridy",service.seznamTrid());
     }
 
-    @GetMapping("/{tridaID}")
+    @GetMapping("/trida/{tridaID}")
     public Object detail(@PathVariable Short tridaID) {
         Optional<Trida> trida = service.singleTrida(tridaID);
         if (trida.isEmpty()) {
@@ -31,7 +32,17 @@ public class TridaController {
         }
         ModelAndView result = new ModelAndView("detail");
         result.addObject("trida", trida.get());
-        result.addObject("studenti",trida.get().getStudenti());
+        return result;
+    }
+
+    @GetMapping("/student/{studentID}")
+    public Object detail(@PathVariable int studentID) {
+        Optional<Student> student = service.singleStudent(studentID);
+        if (student.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        ModelAndView result = new ModelAndView("student");
+        result.addObject("student", student.get());
         return result;
     }
 }

@@ -21,31 +21,35 @@
 </nav>
 
 <main class="container">
-<div class="page-header">
-  <h1 th:text="${trida.nazev}">Jméno třídy</h1>
-  <h2 th:text="${trida.tridniUcitel.getCeleJmeno()}">Třídní učitel</h2>
-</div>
+  <div class="page-header">
+    <h1 th:text="${student.getCeleJmeno()}">Jméno studenta</h1>
+    <h2><a th:href="@{/trida/{id}(id=${student.getTrida().getId()})}" th:text="${student.getTrida().getNazev()}">Jméno třídy</a></h2>
+  </div>
 </main>
 
 <main class="container">
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">Seznam studentů</th>
+      <th scope="col">Jméno a příjmení rodiče</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Telefon</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="student : ${trida.getStudenti()}">
-      <td><a th:href="@{/student/{studentId}(studentId=${student.id})}" th:text="${student.getCeleJmeno()}">Jméno a příjmení studenta</a></td>
+    <tr th:each="rodic : ${student.getRodice()}">
+      <td><a th:text="${rodic.getCeleJmeno()}">Jméno a příjmení rodiče</a></td>
+      <td><a th:text="${rodic.getEmail()}">E-mail rodiče</a></td>
+      <td><a th:text="${rodic.getTelefon()}">Telefon rodiče</a></td>
     </tr>
     </tbody>
   </table>
 </main>
 
 <main class="container">
-<nav>
-  <a href="/">◂ zpět na seznam tříd</a>
-</nav>
+  <nav>
+    <a href="/">◂ zpět na seznam tříd</a>
+  </nav>
 </main>
 
 </body>

@@ -29,7 +29,7 @@
     </thead>
     <tbody>
     <tr th:each="trida : ${tridy}">
-      <td><a th:href="@{/{id}(id=${trida.id})}" th:text="${trida.nazev}">Jméno třídy</a></td>
+      <td><a th:href="@{/trida/{id}(id=${trida.id})}" th:text="${trida.nazev}">Jméno třídy</a></td>
     </tr>
     </tbody>
   </table>

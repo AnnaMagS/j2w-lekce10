@@ -1,5 +1,6 @@
 package cz.czechitas.java2webapps.lekce10.service;
 
+import cz.czechitas.java2webapps.lekce10.entity.Student;
 import cz.czechitas.java2webapps.lekce10.entity.Trida;
 import cz.czechitas.java2webapps.lekce10.repository.StudentRepository;
 import cz.czechitas.java2webapps.lekce10.repository.TridaRepository;
@@ -24,5 +25,6 @@ public class MyService {
         return tridaRepository.serazeneTridy();
     }
     public Optional<Trida> singleTrida(Short id){ return tridaRepository.findById(id); }
+    public Optional<Student> singleStudent(int id){return studentRepository.findById(id); }
 
 }

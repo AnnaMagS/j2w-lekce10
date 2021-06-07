@@ -58,6 +58,8 @@ public class Rodic {
     this.prijmeni = prijmeni;
   }
 
+  public String getCeleJmeno() {return String.format("%s %s", jmeno, prijmeni);}
+
   public String getEmail() {
     return email;
   }
