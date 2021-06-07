@@ -51,6 +51,8 @@ public class Student {
     return prijmeni;
   }
 
+  public String getCeleJmeno() {return String.format("%s %s", jmeno, prijmeni);}
+
   public void setPrijmeni(String prijmeni) {
     this.prijmeni = prijmeni;
   }

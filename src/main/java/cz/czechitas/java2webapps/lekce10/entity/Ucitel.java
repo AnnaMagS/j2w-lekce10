@@ -44,6 +44,8 @@ public class Ucitel {
     this.prijmeni = prijmeni;
   }
 
+  public String getCeleJmeno() {return String.format("%s %s", jmeno, prijmeni);}
+
   public Trida getTrida() {
     return trida;
   }
